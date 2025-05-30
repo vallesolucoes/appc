@@ -1,0 +1,87 @@
+<!-- assets/keypad.html -->
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #000428, #004e92); /* Fundo gradiente */
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
+        }
+        .keypad {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            max-width: 400px;
+            margin: auto;
+        }
+        button {
+            font-size: 20px;
+            padding: 20px;
+            border: none;
+            background: #1f4068;
+            color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+        }
+        button:hover {
+            transform: translateY(-3px);
+            background: #162447;
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+        }
+        button:active {
+            transform: translateY(0px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
+        button.special {
+            background: #6c757d;
+        }
+        button.yellow {
+            background: #ffc107;
+            color: #000;
+        }
+        button.red {
+            background: #dc3545;
+        }
+        button.green {
+            background: #28a745;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="keypad">
+        <button onclick="buttonClicked('1')">1</button>
+        <button onclick="buttonClicked('2')">2</button>
+        <button onclick="buttonClicked('3')">3</button>
+        <button class="special" onclick="buttonClicked('A')">A</button>
+        <button onclick="buttonClicked('4')">4</button>
+        <button onclick="buttonClicked('5')">5</button>
+        <button onclick="buttonClicked('6')">6</button>
+        <button class="yellow" onclick="buttonClicked('B')">B</button>
+        <button onclick="buttonClicked('7')">7</button>
+        <button onclick="buttonClicked('8')">8</button>
+        <button onclick="buttonClicked('9')">9</button>
+        <button class="red" onclick="buttonClicked('C')">C</button>
+        <button onclick="buttonClicked('*')">*</button>
+        <button onclick="buttonClicked('0')">0</button>
+        <button onclick="buttonClicked('#')">#</button>
+        <button class="green" onclick="buttonClicked('D')">D</button>
+    </div>
+    <script>
+        function buttonClicked(value) {
+            // Comunicação com o Android através do WebView
+            if (window.AndroidInterface) {
+                window.AndroidInterface.onButtonClick(value);
+            }
+        }
+    </script>
+</body>
+</html>

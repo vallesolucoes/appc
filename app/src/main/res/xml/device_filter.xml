@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Filtro genérico para todos os dispositivos USB -->
+    <usb-device />
+    
+    <!-- Filtros específicos para tipos comuns de dispositivos -->
+    
+    <!-- HID devices (teclados, mouses) -->
+    <usb-device class="3" />
+    
+    <!-- Mass storage devices (pendrives, HDs externos) -->
+    <usb-device class="8" />
+    
+    <!-- Communication devices (Arduino, conversores USB-Serial) -->
+    <usb-device class="10" />
+    
+    <!-- Vendor specific devices (Arduino, ESP32, etc) -->
+    <usb-device class="255" />
+    
+    <!-- Hub USB -->
+    <usb-device class="9" />
+    
+    <!-- Audio devices -->
+    <usb-device class="1" />
+    
+    <!-- Video devices -->
+    <usb-device class="14" />
+    
+    <!-- Printers -->
+    <usb-device class="7" />
+    
+    <!-- Wireless controllers -->
+    <usb-device class="224" />
+    
+    <!-- Arduino -->
+    <usb-device vendor-id="9025" />
+    <!-- CH340/CH341 -->
+    <usb-device vendor-id="6790" />
+    <!-- FTDI -->
+    <usb-device vendor-id="1027" />
+    <!-- Silicon Labs CP210x -->
+    <usb-device vendor-id="4292" />
+    <!-- Prolific PL2303 -->
+    <usb-device vendor-id="1659" />
+    
+    <!-- CDC Communication devices -->
+    <usb-device class="2" />
+</resources> 
