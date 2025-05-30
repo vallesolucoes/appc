@@ -38,6 +38,30 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    // Configuração explícita de sourceSets para Android Studio
+    sourceSets {
+        getByName("main") {
+            java.srcDirs("src/main/java")
+            res.srcDirs("src/main/res")
+            assets.srcDirs("src/main/assets")
+            manifest.srcFile("src/main/AndroidManifest.xml")
+        }
+        getByName("test") {
+            java.srcDirs("src/test/java")
+        }
+        getByName("androidTest") {
+            java.srcDirs("src/androidTest/java")
+            res.srcDirs("src/androidTest/res")
+        }
+    }
+
+    // Configuração de test para Android Studio
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+        }
+    }
 }
 
 dependencies {
@@ -51,4 +75,13 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+}
+
+// Task aliases para compatibilidade com Android Studio
+tasks.register("testClasses") {
+    dependsOn("testDebugUnitTest")
+}
+
+tasks.register("androidTestClasses") {
+    dependsOn("compileDebugAndroidTestSources")
 }
